@@ -318,7 +318,7 @@ if ($Exchange2016.IsPresent)
    # "http://www.emc.com/collateral/software/data-sheet/h3979-networker-dedupe-ds.pdf"
     )
     
-    if (!(Test-Path $Sourcedir\$Prereqdir)){New-Item -ItemType Directory -Path $Sourcedir\$Prereqdir}
+    if (!(Test-Path $Sourcedir\$Prereqdir)){New-Item -ItemType Directory -Path $Sourcedir\$Prereqdir | Out-Null }
      foreach ($URL in $attachments)
         {
         $FileName = Split-Path -Leaf -Path $Url
