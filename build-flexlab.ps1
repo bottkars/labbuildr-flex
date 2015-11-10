@@ -227,6 +227,39 @@ function Extract-Zip
 }
 ####
 
+function get-prereq
+{ 
+param ([string]$DownLoadUrl,
+        [string]$destination )
+$ReturnCode = $True
+if (!(Test-Path $Destination))
+    {
+        Try 
+        {
+        if (!(Test-Path (Split-Path $destination)))
+            {
+            New-Item -ItemType Directory  -Path (Split-Path $destination) -Force
+            }
+        Write-verbose "Starting Download of $DownLoadUrl"
+        Start-BitsTransfer -Source $DownLoadUrl -Destination $destination -DisplayName "Getting $destination" -Priority Foreground -Description "From $DownLoadUrl..." -ErrorVariable err 
+                If ($err) {Throw ""} 
+
+        } 
+        Catch 
+        { 
+            $ReturnCode = $False 
+            Write-Warning " - An error occurred downloading `'$FileName`'" 
+            Write-Error $_ 
+        }
+    }
+    else
+    {
+    write-Warning "No download needed, file exists" 
+    }
+    return $ReturnCode 
+}
+####
+
 switch ($PsCmdlet.ParameterSetName)
 {
     "update" 
