@@ -304,6 +304,8 @@ if ($Exchange2016.IsPresent)
         {
         $e16_cu = $Latest_e16_cu
         }
+    $EX_Version = "E2016"
+    $Scenarioname = "Exchange"
     $Prereqdir = "Attachments"
     $attachments = (
     "http://www.cisco.com/c/dam/en/us/solutions/collateral/data-center-virtualization/unified-computing/fle_vmware.pdf"
