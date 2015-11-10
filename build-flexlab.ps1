@@ -306,14 +306,14 @@ if ($Exchange2016.IsPresent)
         }
     $Prereqdir = "Attachments"
     $attachments = (
-    "http://www.cisco.com/c/dam/en/us/solutions/collateral/data-center-virtualization/unified-computing/fle_vmware.pdf",
-    "http://www.emc.com/collateral/white-papers/h12234-emc-integration-for-microsoft-private-cloud-wp.pdf",
-    "http://www.emc.com/collateral/software/data-sheet/h2257-networker-ds.pdf",
-    "http://www.emc.com/collateral/software/data-sheet/h2479-networker-app-modules-ds.pdf",
-    "http://www.emc.com/collateral/software/data-sheet/h4525-networker-ms-apps-ds.pdf",
-    "http://www.emc.com/collateral/handouts/h14152-cloudboost-handout.pdf",
-    "http://www.emc.com/collateral/software/data-sheet/h2257-networker-ds.pdf",
-    "http://www.emc.com/collateral/software/data-sheet/h3979-networker-dedupe-ds.pdf"
+    "http://www.cisco.com/c/dam/en/us/solutions/collateral/data-center-virtualization/unified-computing/fle_vmware.pdf"
+   # "http://www.emc.com/collateral/white-papers/h12234-emc-integration-for-microsoft-private-cloud-wp.pdf",
+   # "http://www.emc.com/collateral/software/data-sheet/h2257-networker-ds.pdf",
+   # "http://www.emc.com/collateral/software/data-sheet/h2479-networker-app-modules-ds.pdf",
+   # "http://www.emc.com/collateral/software/data-sheet/h4525-networker-ms-apps-ds.pdf",
+   # "http://www.emc.com/collateral/handouts/h14152-cloudboost-handout.pdf",
+   # "http://www.emc.com/collateral/software/data-sheet/h2257-networker-ds.pdf",
+   # "http://www.emc.com/collateral/software/data-sheet/h3979-networker-dedupe-ds.pdf"
     )
     
     if (!(Test-Path $Sourcedir\$Prereqdir)){New-Item -ItemType Directory -Path $Sourcedir\$Prereqdir}
