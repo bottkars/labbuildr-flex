@@ -51,7 +51,14 @@ param (
 )
 $Builddir = $PSScriptRoot
 $Sourcedir = "C:\Sources"
-
+if (!(Test-Path $Sourcedir))
+    {
+    New-Item -ItemType Directory -Path $Sourcedir | out-null
+    }
+if (!(get-smbshare -name "Sources"))
+    {
+    new-smbshare -name "Sources" -path $Sourcedir
+    }
 ##
 $Latest_e16_cu = "final"
 
@@ -413,17 +420,22 @@ if ($Exchange2016.IsPresent)
             {
             Write-Verbose "Found attachments"
             }
-	    workorder "We are going to Install $EX_Version $e16_cu with Nodesize $Size in Domain $BuildDomain with Subnet $MySubnet using $VMnet"
 	    if ($DAG.IsPresent)
 	        {
-		    workorder "We will form a $EXNodes-Node DAG"
+		    Write-Host -ForegroundColor Yellow "We will form a $EXNodes-Node DAG"
 	        }
 
 }
 
 
 
-
+switch ($PsCmdlet.ParameterSetName)
+    {
+        "E16"
+        {
+        $EXnode1 = "HV01"
+        }
+    }
 
 
 
